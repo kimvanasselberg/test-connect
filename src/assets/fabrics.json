@@ -1,0 +1,17 @@
+[
+    { 
+        "fabricName": "Cashmere"
+    },
+    { 
+        "fabricName": "Cotton"
+    },
+    {
+        "fabricName": "Linen"
+    },
+    {
+        "fabricName": "Polyester"
+    },
+    {
+        "fabricName": "Silk"
+    }
+]

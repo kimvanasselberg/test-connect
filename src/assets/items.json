@@ -1,0 +1,41 @@
+[
+    { 
+        "itemName": "Belt"
+    },
+    { 
+        "itemName": "Blouse"
+    },
+    { 
+        "itemName": "Boots"
+    },
+    { 
+        "itemName": "Dress"
+    },
+    { 
+        "itemName": "Jacket"
+    },
+    { 
+        "itemName": "Jeans"
+    },
+    { 
+        "itemName": "Pants"
+    },
+    { 
+        "itemName": "Purse"
+    },
+    { 
+        "itemName": "Shirt"
+    },
+    {
+        "itemName": "Shoes"
+    },
+    { 
+        "itemName": "Shorts"
+    },
+    {
+        "itemName": "Skirt"
+    },
+    { 
+        "itemName": "Sweater"
+    }
+]

@@ -1,0 +1,144 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <table class='table' 
+                style='table-layout: fixed;
+                        width: 650px;'
+                    *ngIf='brands && brands.length'>
+                <thead>Main description
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 100px;">
+                            Brand
+                            <select class="form-control" [(ngModel)]="selectedBrand" >
+                             <option *ngFor="let brand of brands" [ngValue]="brand.brandName">{{brand.brandName}}</option>
+                            </select>
+                        </td>
+                        <td style="width: 80px;">
+                            Item
+                            <select class="form-control" [(ngModel)]="selectedItem" >
+                             <option *ngFor="let item of items" [ngValue]="item.itemName">{{item.itemName}}</option>
+                            </select>
+                        </td>
+                        <td style="width: 70px;">
+                            Color
+                            <select class="multiselect-ui form-control" multiple="multiple" [(ngModel)]="selectedColor" >
+                                <option *ngFor="let color of colors" [ngValue]="color.colorName">{{color.colorName}}</option>
+                               </select>
+                        </td>
+                        <td  style="width: 60px;">
+                            Size
+                            <select class="form-control" [(ngModel)]="selectedSize" >
+                                    <option *ngFor="let size of sizes" [ngValue]="size.sizeName">{{size.sizeName}}</option>
+                                    </select>
+                        </td>
+                        <td style="width: 100px;">
+                            Fabric
+                            <select class="form-control" [(ngModel)]="selectedFabric" >
+                                <option *ngFor="let fabric of fabrics" [ngValue]="fabric.fabricName">{{fabric.fabricName}}</option>
+                            </select>
+                        </td>
+                    </tr>  
+                </tbody>
+            </table>
+
+            <table class='table' 
+                    style='table-layout: fixed;
+                    width: 650px;'
+                    *ngIf='brands && brands.length'>
+                <thead>Measurements
+                    </thead>    
+                <tbody>
+                    <tr>
+                        <td *ngIf='selectedItem === "Blouse" || selectedItem === "Dress" ||
+                                    selectedItem === "Jacket" || selectedItem === "Sweater"' >
+                            Bust
+                            <select style="width: 70px;" class="form-control" [(ngModel)]="selectedBustSize" >
+                                <option *ngFor="let number of numbers30" [ngValue]="number.toString()">{{number}}&quot;</option>
+                            </select>
+                        </td>
+                        <td *ngIf='selectedItem === "Blouse" || selectedItem === "Dress" ||
+                                    selectedItem === "Jacket" || selectedItem === "Sweater" ||
+                                    selectedItem === "Pants" || selectedItem === Jeans'>
+                            Waist
+                            <select style="width: 70px;" class="form-control" [(ngModel)]="selectedWaistSize" >
+                                <option *ngFor="let number of numbers20" [ngValue]="number.toString()">{{number}}&quot;</option>
+                            </select>
+                        </td>
+                        <td *ngIf='selectedItem === "Pants" || selectedItem === Jeans'>
+                            Hips
+                            <select style="width: 70px;" class="form-control" [(ngModel)]="selectedHipsSize" >
+                                <option *ngFor="let number of numbers30" [ngValue]="number.toString()">{{number}}&quot;</option>
+                            </select>
+                        </td>
+                        <td *ngIf='selectedItem === "Pants" || selectedItem === Jeans'>
+                            Inseam
+                            <select style="width: 70px;" class="form-control" [(ngModel)]="selectedInseam" >
+                                <option *ngFor="let number of numbers40" [ngValue]="number.toString()">{{number}}&quot;</option>
+                            </select>
+                            </td>
+                        <td *ngIf='selectedItem === "Blouse" || selectedItem === "Dress" ||
+                            selectedItem === "Jacket" || selectedItem === "Sweater"'>
+                            Total Length
+                            <select style="width: 70px;" class="form-control" [(ngModel)]="selectedTotalLengthSize" >
+                                <option *ngFor="let number of numbers20" [ngValue]="number.toString()">{{number}}&quot;</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf='selectedBrand && selectedBrand.length'>
+            <div style="border:2px solid rgb(106, 85, 223);
+                background-color: rgb(247, 238, 238);
+                padding: 25px;
+                margin: 25px;">
+                <h3>
+                    <b><u>{{ selectedBrand }} {{selectedItem}}</u></b>
+                </h3>
+                <p style="font-size: 18px" *ngIf='selectedColor && selectedColor.length'>
+                    Color: {{selectedColor}}
+                </p>
+                <p style="font-size: 18px" *ngIf='selectedSize && selectedSize.length'>
+                    Size: {{selectedSize}}
+                </p>
+                <h4 *ngIf='selectedFabric && selectedFabric.length'>
+                        <b><u>Fabric</u></b>
+                </h4>
+                
+                <p style="font-size: 18px">
+                   {{selectedFabric}}
+                </p>
+
+                <h4 *ngIf='selectedBustSize && selectedBustSize.length'>
+                        <b><u>Measurements</u></b>
+                </h4>
+                <p style="font-size: 18px" *ngIf='selectedBustSize && selectedBustSize.length'>
+                        Bust: {{selectedBustSize}}&quot;
+                </p>
+                <p style="font-size: 18px" *ngIf='selectedWaistSize && selectedWaistSize.length'>
+                        Waist: {{selectedWaistSize}}&quot;
+                </p>
+                <p style="font-size: 18px" *ngIf='selectedHipsSize && selectedHipsSize.length'>
+                        Hips: {{selectedHipsSize}}&quot;
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('.multiselect-ui').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
